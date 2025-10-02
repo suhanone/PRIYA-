@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Priya 🎂</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffb6c1, #ffc1e3);
+      font-family: 'Press Start 2P', cursive;
+      color: #fff;
+      overflow: hidden;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.2em;
+      margin-top: 20px;
+      text-shadow: 2px 2px 5px #ff4b5c;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    img.nezuko {
+      width: 280px;
+      animation: float 4s infinite ease-in-out;
+      margin-top: 20px;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-25px); }
+      100% { transform: translateY(0); }
+    }
+    .balloon {
+      position: absolute;
+      bottom: -100px;
+      font-size: 60px;
+      animation: rise 8s infinite ease-in-out;
+    }
+    @keyframes rise {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-110vh); }
+    }
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: gold;
+      top: -10px;
+      animation: fall 5s linear infinite;
+    }
+    @keyframes fall {
+      to { transform: translateY(100vh) rotate(360deg); }
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 15px;
+      background: #ff4b5c;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #e63950;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎂 Happy Birthday Priya 🎉</h1>
+    <h2>Born on 9th October 2008 💖</h2>
+    <img src="https://i.ibb.co/x1TjRmg/nezuko.png" class="nezuko" alt="Nezuko">
+    <button onclick="playMusic()">Play Birthday Song 🎵</button>
+    <audio id="music" src="happy-birthday.mp3"></audio>
+  </div>
+
+  <script>
+    // Balloons
+    const colors = ['🎈','🎊','💖','✨','🌸'];
+    for (let i = 0; i < 20; i++) {
+      let balloon = document.createElement('div');
+      balloon.className = 'balloon';
+      balloon.style.left = Math.random() * 100 + 'vw';
+      balloon.style.animationDuration = (5 + Math.random() * 5) + 's';
+      balloon.textContent = colors[Math.floor(Math.random() * colors.length)];
+      document.body.appendChild(balloon);
+    }
+
+    // Confetti
+    for (let i = 0; i < 60; i++) {
+      let confetti = document.createElement('div');
+      confetti.className = 'confetti';
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.background = ['#ff4b5c','#ffd700','#ff69b4'][Math.floor(Math.random()*3)];
+      confetti.style.animationDuration = (2+Math.random()*3)+'s';
+      document.body.appendChild(confetti);
+    }
+
+    function playMusic() {
+      document.getElementById("music").play();
+    }
+  </script>
+</body>
+</html>
